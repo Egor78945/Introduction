@@ -174,19 +174,9 @@ public class FirstSteps {
 
     public boolean isSortedDescendant(int[][] matrix) {
         if(matrix != null){
-            int[] lastNotEmpty = null;
-            for(int i = 0; i < matrix.length; i++){
-                if(matrix[i].length > 0) {
-                    if (i > 0 && lastNotEmpty != null) {
-                        if (lastNotEmpty[lastNotEmpty.length - 1] < matrix[i][0] || !isSortedDescendant(matrix[i])) {
-                            return false;
-                        }
-                    } else {
-                        if (!isSortedDescendant(matrix[i])) {
-                            return false;
-                        }
-                    }
-                    lastNotEmpty = matrix[i];
+            for(int[] i: matrix){
+                if(!isSortedDescendant(i)){
+                    return false;
                 }
             }
         }
