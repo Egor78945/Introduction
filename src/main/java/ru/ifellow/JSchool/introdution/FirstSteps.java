@@ -27,7 +27,7 @@ public class FirstSteps {
     }
 
     public boolean isInsideRect(int xLeft, int yTop, int xRight, int yBottom, int x, int y) {
-        return x >= xLeft && x <= xRight && y <= yTop && y >= yBottom;
+        return x >= xLeft && x <= xRight && y >= yTop && y <= yBottom;
     }
 
     public int sum(int[] array) {
@@ -89,7 +89,7 @@ public class FirstSteps {
     public boolean isSortedDescendant(int[] array) {
         if (array != null) {
             for (int i = 0; i < array.length - 1; i++) {
-                if (isGreater(array[i+1], array[i])) {
+                if (isGreater(array[i + 1], array[i]) || isEqual(array[i + 1], array[i])) {
                     return false;
                 }
             }
@@ -152,7 +152,7 @@ public class FirstSteps {
         if (matrix != null) {
             for (int[] i : matrix) {
                 int tempMax = max(i);
-                if(isGreater(tempMax, max)){
+                if (isGreater(tempMax, max)) {
                     max = tempMax;
                 }
             }
@@ -162,7 +162,7 @@ public class FirstSteps {
 
     public int diagonalMax(int[][] matrix) {
         int max = Integer.MIN_VALUE;
-        if(matrix != null) {
+        if (matrix != null) {
             for (int i = 0; i < matrix.length; i++) {
                 if (isGreater(matrix[i][i], max)) {
                     max = matrix[i][i];
@@ -173,9 +173,9 @@ public class FirstSteps {
     }
 
     public boolean isSortedDescendant(int[][] matrix) {
-        if(matrix != null){
-            for(int[] i: matrix){
-                if(!isSortedDescendant(i)){
+        if (matrix != null) {
+            for (int[] i : matrix) {
+                if (!isSortedDescendant(i)) {
                     return false;
                 }
             }
